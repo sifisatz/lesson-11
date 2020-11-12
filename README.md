@@ -29,3 +29,44 @@ Remember to replace the `config` variable in your `firebase.utils.js` with your 
 ## Utility functions
 
 Utility functions allow us to keep our files clena and organize functions that we may need in multiple files in one location
+
+## Memoizing selectCollection and collectionUrlParam
+
+One quick addition, our `selectCollection` function we just wrote is not memoized due to `collectionUrlParam` being passed in from our collection component's `mapStateToProps` running whenever our state changes and and calling a new instance of our `selectCollection` function. In this case collectionUrlParam is a dynamic argument meaning it can change, so to memoize selectCollection we actually have to memoize the whole function using a `memoize` helper function. We can leverage the lodash library, specifically their memoize helper function by adding it our packages like so:
+
+If using yarn:
+
+    yarn add lodash.memoize
+
+
+If using npm:
+
+    npm install lodash.memoize
+
+
+And to use it, we import our newly installed memoize helper function at the top of `shop.selectors.jsx` like so:
+
+    import memoize from 'lodash.memoize';
+
+And just wrap our `selectCollection` function with `memoize` like so:
+
+    export const selectCollection = memoize((collectionUrlParam) =>
+      createSelector(
+        [selectCollections],
+        (collections) => collections[collectionUrlParam]
+      )
+    );
+
+`Memoize` does the same idea of memoization as reselect does for our selectors, except this time we're memoizing the return of our function which returns our selector:
+
+    (collectionUrlParam) =>
+      createSelector(
+        [selectCollections],
+        (collections) => collections[collectionUrlParam]
+     )
+
+By wrapping this function is memoize, we're saying that whenever this function gets called and receives `collectionUrlParam`, I want to memoize the return of this function (in this case we return a selector). If this function gets called again with the same `collectionUrlParam`, don't rerun this function because we'll return the same value as last time, which we've memoized so just return the selector that's been stored.
+
+## (Optional): Currying
+
+In the previous video, we saw the concept of currying being applied with our selector. If you want to learn more about currying and how it works with JavaScript, simply go to **Appendix 1: Key Developer Concepts** at the bottom of the course video player, and watch the video titled Currying from my **Advanced JavaScript Concepts** course which I have included for you. 
