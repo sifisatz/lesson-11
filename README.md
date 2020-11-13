@@ -70,3 +70,7 @@ By wrapping this function is memoize, we're saying that whenever this function g
 ## (Optional): Currying
 
 In the previous video, we saw the concept of currying being applied with our selector. If you want to learn more about currying and how it works with JavaScript, simply go to **Appendix 1: Key Developer Concepts** at the bottom of the course video player, and watch the video titled Currying from my **Advanced JavaScript Concepts** course which I have included for you. 
+
+## (Optional): Hash Tables vs Arrays
+
+In the previous lesson we learned about Objects (Hash Table data structure) being better for searching for items than Array. This is a common computing optimization when talking about data structures. If you want to learn more about why this is, this is a great resource for you to use: https://www.kirupa.com/html5/hashtables_vs_arrays.htm
