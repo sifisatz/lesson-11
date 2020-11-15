@@ -74,3 +74,5 @@ In the previous video, we saw the concept of currying being applied with our sel
 ## (Optional): Hash Tables vs Arrays
 
 In the previous lesson we learned about Objects (Hash Table data structure) being better for searching for items than Array. This is a common computing optimization when talking about data structures. If you want to learn more about why this is, this is a great resource for you to use: https://www.kirupa.com/html5/hashtables_vs_arrays.htm
+
+ 
