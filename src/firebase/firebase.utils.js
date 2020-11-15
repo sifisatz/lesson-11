@@ -3,15 +3,15 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: "AIzaSyBubsAuL4-B0gdqjiXPjmb2v9vOGS5HYVE",
-  authDomain: "master-admin-409da.firebaseapp.com",
-  databaseURL: "https://master-admin-409da.firebaseio.com",
-  projectId: "master-admin-409da",
-  storageBucket: "master-admin-409da.appspot.com",
-  messagingSenderId: "381156291569",
-  appId: "1:381156291569:web:14c3c38416f56d67e2ca50",
-  measurementId: "G-YSD26KS34E"
-}
+  apiKey: "AIzaSyBSyt_lDaRa8Lwt11amh_rLDKMti5RqiuI",
+  authDomain: "iosif-live-9f395.firebaseapp.com",
+  databaseURL: "https://iosif-live-9f395.firebaseio.com",
+  projectId: "iosif-live-9f395",
+  storageBucket: "iosif-live-9f395.appspot.com",
+  messagingSenderId: "944775958446",
+  appId: "1:944775958446:web:11ea7b7db78163fa5a823f",
+  measurementId: "G-PS4W20CHLV"
+};
 
 firebase.initializeApp(config);
 
