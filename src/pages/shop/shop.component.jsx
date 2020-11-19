@@ -11,7 +11,7 @@ import CollectionsOverview from '../../components/collections-overview/collectio
 import CollectionPage from '../collection/collection.component'
 
 
-const CollectionOverviewWithSpinner = WithSpinner(CollectionsOverview)
+const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview)
 const CollectionPageWithSpinner = WithSpinner(CollectionPage)
 
 
@@ -22,14 +22,21 @@ class ShopPage extends React.Component {
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
-    const { updateCollections } = this.props
+    const { updateCollections } = this.props;
     const collectionRef = firestore.collection('collections');
 
-    this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
-      const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
+    //182 Promises Pattern
+
+    // fetch('https://firestore.googleapis.com/v1/projects/iosif-live-9f395/databases/(default)/documents/')
+    //   .then(response => response.json())
+    //   .then(collections => console.log(collections))
+
+
+    collectionRef.get().then(snapshot => {
+      const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
       updateCollections(collectionsMap);
-      this.setState({ loading: false })
-    })
+      this.setState({ loading: false });
+    });
   }
   render() {
     const { match } = this.props
@@ -37,7 +44,7 @@ class ShopPage extends React.Component {
 
     return (
       <div className='shop-page'>
-        <Route exact path={`${match.path}`} render={(props) => <CollectionOverviewWithSpinner isLoading={loading} {...props} />} />
+        <Route exact path={`${match.path}`} render={(props) => <CollectionsOverviewWithSpinner isLoading={loading} {...props} />} />
         <Route path={`${match.path}/:collectionId`} render={(props) => <CollectionPageWithSpinner isLoading={loading} {...props} />} />
       </div>
     );
