@@ -151,3 +151,8 @@ So we can assume that the following command was executed (implicitly) somewhere,
 
 
 - Thank you to Nabeel Ahmed for this great explanation!
+
+## Redux Thunk
+
+Thunk **middleware** for Redux.
+https://www.npmjs.com/package/redux-thunk
