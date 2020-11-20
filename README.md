@@ -156,3 +156,30 @@ So we can assume that the following command was executed (implicitly) somewhere,
 
 Thunk **middleware** for Redux.
 https://www.npmjs.com/package/redux-thunk
+
+
+## function*
+
+The **function*** declaration (**function** keyword followed by an asterisk) defines a generator function, which returns a **Generator** object.
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*
+
+```function* generator(i) {
+  yield i;
+  yield i + 10;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value);
+// expected output: 10
+
+console.log(gen.next().value);
+// expected output: 20
+```
+
+## Redux Saga
+
+**redux-saga** is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
+
+https://redux-saga.js.org/ 
