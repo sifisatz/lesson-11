@@ -187,3 +187,7 @@ https://redux-saga.js.org/
 take, takeLatest, takeEvery, delay, put, take
 
 **PUT :** puts things back into our regular Redux flow 
+
+
+**Redux-Thunk vs. Redux-Saga**
+https://medium.com/@shoshanarosenfield/redux-thunk-vs-redux-saga-93fe82878b2d
