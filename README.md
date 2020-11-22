@@ -185,3 +185,5 @@ console.log(gen.next().value);
 https://redux-saga.js.org/ 
 
 take, takeLatest, takeEvery, delay, put, take
+
+**PUT :** puts things back into our regular Redux flow 
