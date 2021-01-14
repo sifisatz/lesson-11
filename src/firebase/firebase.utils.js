@@ -11,7 +11,6 @@ const config = {
   messagingSenderId: '944775958446',
   appId: '1:944775958446:web:11ea7b7db78163fa5a823f',
   measurementId: 'G-PS4W20CHLV'
-
 };
 
 firebase.initializeApp(config);
@@ -24,10 +23,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   const snapShot = await userRef.get();
 
   if (!snapShot.exists) {
-    const {
-      displayName,
-      email
-    } = userAuth;
+    const {displayName,email} = userAuth;
     const createdAt = new Date();
     try {
       await userRef.set({
@@ -78,6 +74,8 @@ export const convertCollectionsSnapshotToMap = (collections) => {
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
     const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      console.log("unsubscribe : "+JSON.stringify(unsubscribe))
+      console.log('userAuth : '+JSON.stringify(userAuth))
       unsubscribe();
       resolve(userAuth);
     }, reject)

@@ -1,7 +1,7 @@
 import {
     takeLatest,
     call,
-    put /* like dispatch*/ ,
+    put /* like dispatch*/,
     all
 } from 'redux-saga/effects'
 import {
@@ -17,6 +17,7 @@ import ShopActionTypes from './shop.types'
 
 export function* fetchCollectionsAsync() {
     try {
+        console.log("fetchCollectionsStart saga")
         const collectionRef = firestore.collection('collections');
         const snapshot = yield collectionRef.get();
         const collectionsMap = yield call(convertCollectionsSnapshotToMap, snapshot)
