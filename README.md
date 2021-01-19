@@ -193,6 +193,36 @@ take, takeLatest, takeEvery, delay, put, take
 https://medium.com/@shoshanarosenfield/redux-thunk-vs-redux-saga-93fe82878b2d
 
 **Rules of Hooks**
+
+```
+useEffect(()=> {
+    const fetchFunc = async ()=>{
+        const response = await fetch(
+            `https://jsonplaceholder.typicode.com/users?username=${searchQuery}`
+        );
+        const resJson = await response.json()
+        setUser(resJson[0]);
+    }
+    fetchFunc();
+},[searchQuery]);
+```
+
+Conditionally fire the effect
+```
+useEffect(()=> {
+    if(searchQuery.length > 0){
+            const fetchFunc = async ()=>{
+        const response = await fetch(
+            `https://jsonplaceholder.typicode.com/users?username=${searchQuery}`
+        );
+        const resJson = await response.json()
+        setUser(resJson[0]);
+    }
+    fetchFunc();
+    }
+
+},[searchQuery]);
+```
 https://reactjs.org/docs/hooks-rules.html
 
 Only Call Hooks at the Top Level
