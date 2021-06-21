@@ -20,9 +20,7 @@ useEffect(() => { //componentDidMount
         exact
         path={`${match.path}`}
         component={CollectionsOverviewContainer}
-      />{
-        console.log("sifis")
-      }
+      />
       <Route
         path={`${match.path}/:collectionId`}
         component={CollectionPageContainer}

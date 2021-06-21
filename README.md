@@ -228,3 +228,53 @@ https://reactjs.org/docs/hooks-rules.html
 Only Call Hooks at the Top Level
 
 Don’t call Hooks inside loops, conditions, or nested functions. Instead, always use Hooks at the top level of your React function. By following this rule, you ensure that Hooks are called in the same order each time a component renders. That’s what allows React to correctly preserve the state of Hooks between multiple useState and useEffect calls. (If you’re curious, we’ll explain this in depth below https://reactjs.org/docs/hooks-rules.html#explanation.)
+
+
+**useEffect Cheat Sheet**
+
+useEffect Cheat Sheet
+
+ComponentDidMount
+```
+    //Class
+    componentDidMount() {
+        console.log('I just mounted!');
+    }
+     
+    //Hooks
+    useEffect(() => {
+        console.log('I just mounted!');
+    }, [])
+```
+
+ComponentWillUnmount
+```
+    //Class
+    componentWillUnmount() {
+        console.log('I am unmounting');
+    }
+     
+    //Hooks
+    useEffect(() => {
+        return () => console.log('I am unmounting');
+    }, [])
+```
+ComponentWillReceiveProps 
+```
+    //Class
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.count !== this.props.count) {
+            console.log('count changed', nextProps.count);
+        }
+    }
+     
+    //Hooks
+    useEffect(() => {
+        console.log('count changed', props.count);
+    }, [props.count])
+```
+
+
+**useContext + useMemo + useCallback**
+
+There are a few other Hooks we still need to talk about such as **useContext** or **useMemo** or **useCallback** However, we are covering topics like these in later sections in the course when we learn a little bit more about things like **ContextAPI** and **Performance**.
